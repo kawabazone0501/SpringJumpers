@@ -9,13 +9,17 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     // ゲームオーバー画面のUI
-    public GameObject gameOverUI;
+    [SerializeField] private GameObject gameOverUI;
 
     // ゲームクリア画面のUI
-    public GameObject gameClearUI;
+    [SerializeField] private GameObject gameClearUI;
+
+    //　コントローラーUI
+    [SerializeField] private GameObject ControllerUI;
 
     // 画面外に出たと判定するY座標の閾値
     public float fallThreshold = -10f;
+
 
     void Awake()
     {
@@ -35,11 +39,7 @@ public class GameManager : MonoBehaviour
     {
         // ゲームオーバー画面を表示
         gameOverUI.SetActive(true);
-    }
-
-    public void GameStart()
-    {
-        SceneManager.LoadScene("GameScene");
+        ControllerUI.SetActive(false);
     }
 
     // ゲームクリア時の処理
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         // ゲームクリア画面を表示
         gameClearUI.SetActive(true);
+        ControllerUI.SetActive(false);
     }
 
     // リトライボタンが押された時の処理

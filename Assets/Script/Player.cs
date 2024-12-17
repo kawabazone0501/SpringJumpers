@@ -118,10 +118,28 @@ public class Player : MonoBehaviour
     {
         moveLeft = true;
     }
+
+    public void OnTopButtonUp()
+    {
+        animator.SetBool("isUp", false);
+    }
+
+    public void OnTopButtonDown()
+    {
+        animator.SetBool("isUp", true);
+    }
+
+    public void OnBottomButtonUp()
+    {
+        animator.SetBool("isDown", false);
+    }
+
+    public void OnBottomButtonDown()
+    {
+        animator.SetBool("isDown", true);
+    }
     public void MovePlayer()
     {
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        //Vector2 movement = new Vector2(horizontalInput, 0f);
 
         Vector2 movement = Vector2.zero;
 

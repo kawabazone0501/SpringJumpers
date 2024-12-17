@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChaseCamera : MonoBehaviour
-{ 
+{
     Transform target;
     Vector3 fixedPosition;
     bool isFollowing = true;
