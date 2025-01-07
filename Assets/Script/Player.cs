@@ -158,23 +158,31 @@ public class Player : MonoBehaviour
         // 画像の反転
         if (movement.x > 0 && !facingRight)
         {
+            Debug.Log($"movement.x: {movement.x}");
+            Debug.Log("右");
             Flip();
         }
         else if (movement.x < 0 && facingRight)
         {
+            Debug.Log($"movement.x: {movement.x}");
+            Debug.Log("左");
             Flip();
         }
+        
 
     }
 
     void Flip()
     {
+        Debug.Log("反転");
         facingRight = !facingRight;
 
         // スプライトの反転
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        //Vector3 scale = transform.localScale;
+        //scale.x *= -1;
+        //transform.localScale = scale;
+        // スプライトの回転を反転 (Y軸方向に180度回転)
+        transform.rotation = Quaternion.Euler(0f, facingRight ? 0f : 180f, 0f);
     }
 
     public void JumpPlayer()
