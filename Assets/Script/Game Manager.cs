@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     // 画面外に出たと判定するY座標の閾値
     public float fallThreshold = -10f;
 
+    private bool isCount = false;
+
 
     void Awake()
     {
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Debug.Log(isCount);
+        isCount = false;
     }
 
     // ゲームオーバー時の処理
@@ -45,6 +49,11 @@ public class GameManager : MonoBehaviour
     // ゲームクリア時の処理
     public void GameClear()
     {
+        if (!isCount)
+        {
+            isCount = true;
+            WhichStageRelease.Instance.NewStageRelease();
+        }
         // ゲームクリア画面を表示
         gameClearUI.SetActive(true);
         ControllerUI.SetActive(false);
