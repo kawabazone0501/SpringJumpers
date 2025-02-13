@@ -2,8 +2,6 @@
 
 public class CallAnimation : MonoBehaviour
 {
-    [SerializeField] private CloseWall closeWall;
-
     [SerializeField] private Animator animator;
    
     private void Start()
@@ -42,6 +40,7 @@ public class CallAnimation : MonoBehaviour
                 break;
             case 3:
                 animator.SetBool("isDown_3", false);
+                Debug.Log("扉は開く");
                 break;
             default:
                 Debug.Log("アニメーションを呼べない値が入力されています");

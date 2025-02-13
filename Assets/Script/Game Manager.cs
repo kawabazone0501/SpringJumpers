@@ -69,7 +69,12 @@ public class GameManager : MonoBehaviour
     // 終了ボタンが押された時の処理
     public void QuitGame()
     {
-        // ゲーム終了
+#if UNITY_EDITOR
+        // Unityエディターでの動作
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        // 実際のゲーム終了処理
         Application.Quit();
+#endif
     }
 }

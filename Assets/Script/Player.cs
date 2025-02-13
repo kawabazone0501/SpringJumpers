@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
 {
     //てすと
 
+    [SerializeField] private Transform groundCheck; // 足元のチェックポイント
+    [SerializeField] private float checkDistance = 0.2f; // 接地判定の距離
+
     Animator animator;
 
-    public Rigidbody2D rbody2D;
+    [SerializeField] private Rigidbody2D rbody2D;
 
     private float jumpForce = 350f;
 
@@ -19,10 +22,10 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
 
     // 画面外に出たかどうかを判定するためのY座標の閾値
-    public float fallThreshold = -10f;
+    [SerializeField] private float fallThreshold = -10f;
 
     // ゲームクリアを判定するためのトリガーオブジェクト
-    public GameObject clearTrigger;
+    [SerializeField] private GameObject clearTrigger;
 
     private bool moveRight = false;
     private bool moveLeft = false;
@@ -62,6 +65,20 @@ public class Player : MonoBehaviour
         {
             // 画面外に出た場合、ゲームオーバー画面を表示
             GameManager.Instance.GameOver();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // 定期的に地面チェック（タグ "Floor" を探す）
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, checkDistance);
+        if (hit.collider != null && hit.collider.CompareTag("Floor"))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
         }
     }
 

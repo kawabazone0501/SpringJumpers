@@ -3,17 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneMovement : MonoBehaviour
 {
-    private string SceneName;
-
-    // ゲームオーバー画面のUI
-    public GameObject gameOverUI;
-
-    // ゲームクリア画面のUI
-    public GameObject gameClearUI;
-
-    // 画面外に出たと判定するY座標の閾値
-    public float fallThreshold = -10f;
-
+    private string SceneName;// シーンの名前
 
     public void GameStart()
     {

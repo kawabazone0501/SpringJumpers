@@ -19,11 +19,11 @@ public class StageRelease : MonoBehaviour
 
     private void ReleaseStage()
     {
-        if (releaseStage >= 2)
+        if (releaseStage >= 1)
         {
             SecondStageButton.gameObject.SetActive(true);
         }
-        if (releaseStage >= 3)
+        if (releaseStage >= 2)
         {
             ThirdStageButton.gameObject.SetActive(true);
         }

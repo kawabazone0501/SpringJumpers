@@ -2,13 +2,12 @@
 
 public class CloseWall : MonoBehaviour
 {
-    [SerializeField]  CallAnimation callAnimation;
+    [SerializeField] private CallAnimation callAnimation;
 
-    [SerializeField] private int CallingNumber = 0;
+    [SerializeField] private int CallingNumber = 0;// アニメーションを呼び出す番号
 
-    private bool isClose = false;
+    private bool isClose = false;//処理を一度だけ行うためのBool
     private bool isOpen = false;
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

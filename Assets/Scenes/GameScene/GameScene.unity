@@ -7700,6 +7700,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &750295531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 750295532}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &750295532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750295531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 912000111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &768603678
 GameObject:
   m_ObjectHideFlags: 0
@@ -8130,6 +8161,7 @@ Transform:
   m_Children:
   - {fileID: 2093270981}
   - {fileID: 1304655459}
+  - {fileID: 750295532}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &912000112
@@ -8165,10 +8197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516d0b0b8fe77a049adff31d2c5fe833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundCheck: {fileID: 750295532}
+  checkDistance: 0.2
   rbody2D: {fileID: 912000108}
-  moveSpeed: 5
   fallThreshold: -10
   clearTrigger: {fileID: 1498030138}
+  moveSpeed: 5
 --- !u!61 &912000114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10737,6 +10771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1542050594}
   gameClearUI: {fileID: 1584643503}
+  ControllerUI: {fileID: 0}
   fallThreshold: -10
 --- !u!4 &1683702357
 Transform:

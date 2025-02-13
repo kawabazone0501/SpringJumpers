@@ -11,6 +11,7 @@ TagManager:
   - Foot
   - Body
   - Spring
+  - Target
   layers:
   - Default
   - TransparentFX
